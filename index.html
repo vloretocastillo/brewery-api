@@ -11,24 +11,19 @@
     
   <body>
     <div id="root" >
-<!-- 
-     <section class="main-container" v-if='!displayDetailedView'>
-         <article v-for='beer in data'>
-            
-            <h3>{{ beer.name }}</h3>
-            <p>{{ beer.abv }}</p>
-            <p>{{ beer.description }}</p>
-            <button><a v-on:click='detailedView(beer.id)'>More Info</a></button>
 
-        </article>
+        <header>
 
-        <button><a v-on:click='getData'>Load More</a></button>
+        </header>
 
-     </section> -->
+        <div class="progress" v-if='loader'>
+            <div class="indeterminate"></div>
+        </div>
+
+    <!-- <div v-if='!loader'> -->
 
      <section class="main-container" v-if='!displayDetailedView'>
-
-        <div class="card-container" v-for='beer in data'>
+        <div class="card-container" v-for='beer in beers'>
             <div class="col s12 m7">
                 <div class="card horizontal">
                     <div class="card-image image-container">
@@ -50,8 +45,10 @@
 
         <!-- <button><a v-on:click='getData'>Load More</a></button> -->
         <!-- <a v-on:click='getData' class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-        <a v-on:click='getData' class="waves-effect waves-light btn">Load More</a>
+        <!-- <a v-on:click='getData' class="waves-effect waves-light btn">Load More</a> -->
+        <a v-on:click='loadData' class="waves-effect waves-light btn-large btn">Load More</a>
 
+    <!-- </div> -->
 
     </section>
 

@@ -2,11 +2,13 @@
 let app = new Vue({
     el: '#root',
     data : {
+        beers : [],
         data : [],
         current : {},
         page : 1,
         per_page : 80,
-        displayDetailedView : false
+        displayDetailedView : false,
+        loader : true
     },
 
     computed : {},
@@ -23,15 +25,28 @@ let app = new Vue({
             })
             .then(res => {
                 this.page +=1 
+                this.loader = false
                 return res.json()
             })
             .catch(err => console.error(err)) 
         },
+
+        loadData : function () {
+            this.getData()
+                .then(()=>{
+                    this.beers = this.beers.concat(this.data)
+                    // console.log(this.beers.length)
+                })
+        }
     },
 
     created : function () {  
 
         this.getData()
+            .then(()=>{
+                this.beers = this.data
+                // console.log(this.beers.length)
+            })
             
     },
 

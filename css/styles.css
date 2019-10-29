@@ -2,7 +2,11 @@
     margin :0;
     padding: 0;
     font-family: 'Work Sans', sans-serif;
-  }
+}
+
+header {
+  height: 25vh;
+}
 
 .main-container {
   /* border: 1px solid blue; */
@@ -37,7 +41,9 @@
   cursor: pointer;
 }
 
-
+.btn {
+  margin: 5% auto;
+}
 
 
 
