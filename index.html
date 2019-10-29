@@ -11,16 +11,33 @@
   <body>
     <div id="root" >
 
-     <section class="main-container">
+     <section class="main-container" v-if='!displayDetailedView'>
          <article v-for='beer in data'>
             
             <h3>{{ beer.name }}</h3>
             <p>{{ beer.abv }}</p>
             <p>{{ beer.description }}</p>
-            <button><a v-on:click='updateValues(beer.id)'>More Info</a></button>
+            <button><a v-on:click='detailedView(beer.id)'>More Info</a></button>
 
         </article>
+
+        <button><a v-on:click='getData'>Load More</a></button>
+
      </section>
+
+
+     <section class="" v-else>
+        <article>
+            <h3>{{ current.name }}</h3>
+            <h5>{{ current.tagline }}</h5>
+            <p>{{ current.abv }}</p>
+            <p>{{ current.ibu }}</p>
+            <p>{{ current.description }}</p>
+            <img :src="current.image_url" alt="">
+            <button><a v-on:click='displayDetailedView = false'>Back</a></button>
+        </article>
+
+    </section>
 
 
     </div>
