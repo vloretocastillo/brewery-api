@@ -1,0 +1,18 @@
+* {
+    margin :0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+.main-container {
+  border: 1px solid blue;
+  padding: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+article {
+  border: 1px solid red;
+  width:30%;
+}

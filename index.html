@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Brewery Data</title>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+    
+  <body>
+    <div id="root" >
+
+     <section class="main-container">
+         <article v-for='beer in data'>
+            
+            <h3>{{ beer.name }}</h3>
+            <p>{{ beer.abv }}</p>
+            <p>{{ beer.description }}</p>
+            <button><a v-on:click='updateValues(beer.id)'>More Info</a></button>
+
+        </article>
+     </section>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/vue.js"></script>
+  </body>
+</html>
