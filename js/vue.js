@@ -1,4 +1,19 @@
 
+const mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  document.body.scrollTop > 300 || document.documentElement.scrollTop > 300 ? mybutton.style.display = "block" : mybutton.style.display = "none";
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+
+
 let app = new Vue({
     el: '#root',
     data : {
@@ -19,9 +34,14 @@ let app = new Vue({
             this.displayDetailedView = true
         },
 
-        updateCurrent : function (id) {
-            let index = this.beers.indexOf(this.current) 
-            this.current = this.beers[index + 1]
+        updateCurrentPrevious : function () {
+            let index = this.beers.indexOf(this.current) - 1
+            index >= 0 ? this.current = this.beers[index] : false
+        },
+
+        updateCurrentNext : function () {
+            let index = this.beers.indexOf(this.current) + 1
+            index < this.beers.length ? this.current = this.beers[index] : false
         },
 
         getData : async function () {
@@ -61,16 +81,17 @@ let app = new Vue({
 // next button on detailed view with updated current 
 // tell the user when its over
 
-// back to top button 
+// back to top button style color 
+
+
+
+
+
 
 
 //// const malts = beers.ingredients.malt 
-
-
 /// WITH  MAP
 // const newMalts = malts.map((el) => el.name)
-
-
 /// SAME AS MAP ABOVE
 // const newMalts =[]
 // for (let i =0; i < malts.length; i++) {

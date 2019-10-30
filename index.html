@@ -10,6 +10,9 @@
   </head>
     
   <body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     <div id="root" >
 
         <div class="content-wrapper">
@@ -44,35 +47,28 @@
 
 
             <section class="detailed-view" v-else>
-                <!-- <article>
-                    <h3>{{ current.name }}</h3>
-                    <h5>{{ current.tagline }}</h5>
-                    <p>{{ current.abv }}</p>
-                    <p>{{ current.ibu }}</p>
-                    <p>{{ current.description }}</p>
-                    <img :src="current.image_url" alt="">
-                    <button><a v-on:click='displayDetailedView = false'>Back</a></button>
-                </article> -->
 
-                <div class="card-container">
-                    <!-- <div class="col s12 m7"> -->
-                        <!-- <div class="card horizontal"> -->
-                            <!-- <div class="card-image image-container"> -->
-                                <img :src="current.image_url" class="resize-me" >
-                            <!-- </div> -->
-                            <!-- <div class="card-stacked"> -->
-                            <!-- <div class="card-content"> -->
-                                <h4>{{ current.name + ' ' + current.abv }}</h4>
-                                <p>{{ current.description }}</p>
-                            <!-- </div> -->
-                            <div class="card-action">
-                                <a v-on:click='displayDetailedView = false' class="link-detailed-view btn">Back</a>
-                                <a v-on:click='updateCurrent(current.id)' class="link-detailed-view btn">Next</a>
-                            </div>
-                        <!-- </div> -->
-                    <!-- </div> -->
-                    <!-- </div> -->
+                <div class="actions">
+                    <a v-on:click='displayDetailedView = false' class="link-detailed-view btn">Back</a>
+                    <div>
+                        <a v-on:click='updateCurrentPrevious(current.id)' class="link-detailed-view btn">Previous</a>
+                        <a v-on:click='updateCurrentNext(current.id)' class="link-detailed-view btn">Next</a>
+                    </div>
                 </div>
+                    
+                <h4>{{ current.name + ' ' + current.abv + ' -' + current.tagline }}</h4>
+                <!-- <p>{{ current.tagline }}</p> -->
+                <p>{{ current.description }}</p>
+                <p>Pair it with:
+                    <span v-for='dish in current.food_pairing'>
+                        <span> {{ dish }} </span>
+                    </span>
+                </p>
+                <div class="">
+                    <img :src="current.image_url" class="" >
+                </div>
+                    
+                       
 
             </section>
 
