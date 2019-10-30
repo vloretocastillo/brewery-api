@@ -15,7 +15,7 @@ let app = new Vue({
 
     methods : {
         detailedView : function (id) {
-            this.current = this.data.find(el => el.id == id)
+            this.current = this.beers.find(el => el.id == id)
             this.displayDetailedView = true
         },
 
@@ -35,7 +35,6 @@ let app = new Vue({
             this.getData()
                 .then(()=>{
                     this.beers = this.beers.concat(this.data)
-                    // console.log(this.beers.length)
                 })
         }
     },
@@ -45,9 +44,16 @@ let app = new Vue({
         this.getData()
             .then(()=>{
                 this.beers = this.data
-                // console.log(this.beers.length)
             })
             
     },
 
 })
+
+
+// add nice header
+// css customize the individual view of the beer
+// right now, the beers load only if a button is pressed --- make it so that it loads when the user scrolls down completely 
+// next button on detailed view with updated current 
+
+// back to top button 

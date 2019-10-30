@@ -12,17 +12,17 @@
   <body>
     <div id="root" >
 
-        <header>
-
-        </header>
+    <!-- <div class="container-wrapper"> -->
+        <!-- <header>
+        </header> -->
 
         <div class="progress" v-if='loader'>
             <div class="indeterminate"></div>
         </div>
 
-    <!-- <div v-if='!loader'> -->
 
-     <section class="main-container" v-if='!displayDetailedView'>
+        <section class="main-container" v-if='!displayDetailedView'>
+        <div class="dark-cover"></div>
         <div class="card-container" v-for='beer in beers'>
             <div class="col s12 m7">
                 <div class="card horizontal">
@@ -48,12 +48,12 @@
         <!-- <a v-on:click='getData' class="waves-effect waves-light btn">Load More</a> -->
         <a v-on:click='loadData' class="waves-effect waves-light btn-large btn">Load More</a>
 
-    <!-- </div> -->
+    
 
-    </section>
+        </section>
 
 
-     <section class="" v-else>
+        <section class="detailed-view" v-else>
         <article>
             <h3>{{ current.name }}</h3>
             <h5>{{ current.tagline }}</h5>
@@ -64,10 +64,11 @@
             <button><a v-on:click='displayDetailedView = false'>Back</a></button>
         </article>
 
-    </section>
-
+        </section>
 
     </div>
+
+    <!-- </div> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
