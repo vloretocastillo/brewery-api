@@ -11,9 +11,6 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-
-
-
 let app = new Vue({
     el: '#root',
     data : {
@@ -26,7 +23,7 @@ let app = new Vue({
         loader : true
     },
 
-    computed : {},
+    // computed : {},
 
     methods : {
         detailedView : function (id) {
@@ -50,16 +47,19 @@ let app = new Vue({
             })
             .then(res => {
                 this.page +=1 
-                this.loader = false
+                // this.loader = false
                 return res.json()
             })
             .catch(err => console.error(err)) 
         },
 
         loadData : function () {
+            // this.loader = true
             this.getData()
                 .then(()=>{
                     this.beers = this.beers.concat(this.data)
+                    // this.loader = false
+
                 })
         }
     },
@@ -69,6 +69,8 @@ let app = new Vue({
         this.getData()
             .then(()=>{
                 this.beers = this.data
+                this.loader = false
+
             })
             
     },
@@ -76,8 +78,8 @@ let app = new Vue({
 })
 
 
-// css customize the individual view of the beer
-
+// loader 
+// media queries 
 
 
 

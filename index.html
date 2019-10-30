@@ -18,7 +18,7 @@
         <div class="content-wrapper">
             <div class="dark-cover"></div>
 
-            <div class="progress" v-if='loader'>
+            <div class="progress loader" v-if='loader'>
                 <div class="indeterminate"></div>
             </div>
 
@@ -74,24 +74,24 @@
                 </div>
                 
                 <hr>    
-
-                <h5>Ingredients</h5>
-                <p>Yeast: {{ current.ingredients.yeast }}</p>
-                <div class="ingredients">
-                    <div>
-                        <p>Hops:</p>
-                        <ul v-for='hop in current.ingredients.hops'>
-                            <li>{{ hop.name }}</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p>Malt:</p>
-                        <ul v-for='malt in current.ingredients.malt'>
-                            <li>{{ malt.name }}</li>
-                        </ul>
+                <div class="ingredients-container">
+                    <h5>Ingredients</h5>
+                    <p>Yeast: {{ current.ingredients.yeast }}</p>
+                    <div class="ingredients">
+                        <div>
+                            <span>Hops:</span>
+                            <ul v-for='hop in current.ingredients.hops'>
+                                <li>{{ hop.name }}</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span>Malt:</span>
+                            <ul v-for='malt in current.ingredients.malt'>
+                                <li>{{ malt.name }}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-
                 <span v-if='current.image_url'>
                     <div class="image">
                         <img :src="current.image_url" class="" >

@@ -124,15 +124,46 @@
   border-radius: 5px;
 }
 
+.detailed-view .ingredients-container {
+  padding: 1%;
+  /* border: 1px solid green; */
 
-.detailed-view .ingredients {
-  border: 1px solid green;
-  display: flex;
-  justify-content: space-between;
 }
 
+
+
+.detailed-view .ingredients {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.detailed-view .ingredients div {
+  /* padding: 1%; */
+  /* border: 1px solid green; */
+  width: 50%;
+}
+
+.detailed-view .ingredients ul {
+  display: inline;  
+}
+
+.detailed-view .ingredients ul li {
+  display: inline-block;  
+  background-color: rgb(9, 170, 130);
+  color: white;
+  padding: 0.5%;
+  margin: 1%;
+  border-radius: 5px;
+}
+
+
+
+
+
 .detailed-view .image {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   height: 40vh;
   overflow: hidden;
   padding: 1%;
@@ -142,4 +173,14 @@
   height: 100%;
   display: block;
   margin: 0 auto;
+}
+
+
+.loader {
+  /* position: fixed; */
+
+}
+
+.card-container {
+  width: 100%
 }
