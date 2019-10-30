@@ -28,7 +28,12 @@
                     <div class="col s12 m7">
                         <div class="card horizontal">
                             <div class="card-image image-container">
-                                <img :src="beer.image_url" class="resize-me" >
+                                <span v-if='beer.image_url'>
+                                    <img :src="beer.image_url" class="resize-me" alt='photo of beer'>
+                                </span>
+                                <span v-else>
+                                    <img src="assets/images/no-image.png" class="resize-me" alt="default photo">
+                                </span>
                             </div>
                             <div class="card-stacked">
                             <div class="card-content">
@@ -55,18 +60,51 @@
                         <a v-on:click='updateCurrentNext(current.id)' class="link-detailed-view btn">Next</a>
                     </div>
                 </div>
-                    
-                <h4>{{ current.name + ' ' + current.abv + ' -' + current.tagline }}</h4>
-                <!-- <p>{{ current.tagline }}</p> -->
-                <p>{{ current.description }}</p>
-                <p>Pair it with:
-                    <span v-for='dish in current.food_pairing'>
-                        <span> {{ dish }} </span>
-                    </span>
-                </p>
-                <div class="">
-                    <img :src="current.image_url" class="" >
+                
+                <div class="basics">
+                    <h4>{{ current.name + ' ' + current.abv + ' -' + current.tagline }}</h4>
+                    <p>{{ current.description }}</p>
                 </div>
+                
+                <div class="food-pairings">
+                    <span>Pair it with:</span>
+                    <ul v-for='dish in current.food_pairing'>
+                        <li> {{ dish }} </li>
+                    </ul>
+                </div>
+                
+                <hr>    
+
+                <h5>Ingredients</h5>
+                <p>Yeast: {{ current.ingredients.yeast }}</p>
+                <div class="ingredients">
+                    <div>
+                        <p>Hops:</p>
+                        <ul v-for='hop in current.ingredients.hops'>
+                            <li>{{ hop.name }}</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Malt:</p>
+                        <ul v-for='malt in current.ingredients.malt'>
+                            <li>{{ malt.name }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <span v-if='current.image_url'>
+                    <div class="image">
+                        <img :src="current.image_url" class="" >
+                    
+
+                    <!-- <span v-if='current.image_url'>
+                        <img :src="current.image_url"  alt='photo of beer'>
+                    </span> -->
+                    <!-- <span v-else>
+                        <img src="assets/images/no-image.png"  alt="default photo">
+                    </span> -->
+                    </div>
+                </span>
                     
                        
 

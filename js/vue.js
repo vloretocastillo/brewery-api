@@ -77,11 +77,6 @@ let app = new Vue({
 
 
 // css customize the individual view of the beer
-// right now, the beers load only if a button is pressed --- make it so that it loads when the user scrolls down completely 
-// next button on detailed view with updated current 
-// tell the user when its over
-
-// back to top button style color 
 
 
 
