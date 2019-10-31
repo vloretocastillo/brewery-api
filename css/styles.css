@@ -59,7 +59,13 @@
 .image-container {
   width: 18%;
   padding: 5%;
+  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+
 
 .resize-me {
   max-width: 100%;
@@ -127,7 +133,6 @@
 .detailed-view .ingredients-container {
   padding: 1%;
   /* border: 1px solid green; */
-
 }
 
 
@@ -176,11 +181,16 @@
 }
 
 
-.loader {
-  /* position: fixed; */
 
-}
 
 .card-container {
   width: 100%
+}
+
+
+@media  (max-width: 900px) {
+  .content-wrapper {
+    padding: 5%;
+  }
+  
 }

@@ -24,7 +24,7 @@
 
 
             <section class="main-container" v-if='!displayDetailedView'>
-                <div class="card-container" v-for='beer in beers'>
+                <div class="card-container" v-for='beer in beers' :id=`${beer.id}`>
                     <div class="col s12 m7">
                         <div class="card horizontal">
                             <div class="card-image image-container">
@@ -54,7 +54,7 @@
             <section class="detailed-view" v-else>
 
                 <div class="actions">
-                    <a v-on:click='displayDetailedView = false' class="link-detailed-view btn">Back</a>
+                    <a v-on:click='displayDetailedView = false' class="link-detailed-view btn" :href=`#${current.id}`>Back</a>
                     <div>
                         <a v-on:click='updateCurrentPrevious(current.id)' class="link-detailed-view btn">Previous</a>
                         <a v-on:click='updateCurrentNext(current.id)' class="link-detailed-view btn">Next</a>
@@ -97,12 +97,7 @@
                         <img :src="current.image_url" class="" >
                     
 
-                    <!-- <span v-if='current.image_url'>
-                        <img :src="current.image_url"  alt='photo of beer'>
-                    </span> -->
-                    <!-- <span v-else>
-                        <img src="assets/images/no-image.png"  alt="default photo">
-                    </span> -->
+                   
                     </div>
                 </span>
                     

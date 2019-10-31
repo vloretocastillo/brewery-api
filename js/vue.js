@@ -54,12 +54,9 @@ let app = new Vue({
         },
 
         loadData : function () {
-            // this.loader = true
             this.getData()
                 .then(()=>{
                     this.beers = this.beers.concat(this.data)
-                    // this.loader = false
-
                 })
         }
     },
@@ -70,7 +67,6 @@ let app = new Vue({
             .then(()=>{
                 this.beers = this.data
                 this.loader = false
-
             })
             
     },
@@ -78,8 +74,8 @@ let app = new Vue({
 })
 
 
-// loader 
 // media queries 
+// table instead
 
 
 
