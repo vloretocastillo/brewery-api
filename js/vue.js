@@ -1,12 +1,3 @@
-
-
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-// 
-
 let app = new Vue({
     el: '#root',
     data : {
@@ -71,13 +62,11 @@ let app = new Vue({
     },
 
     created : function () {  
-
         this.getData()
             .then(()=>{
                 this.beers = this.data
                 this.loader = false
-            })
-            
+            })     
     },
 
     mounted () {
