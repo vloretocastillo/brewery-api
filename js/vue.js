@@ -1,15 +1,11 @@
 
-const mybutton = document.getElementById("myBtn");
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  document.body.scrollTop > 300 || document.documentElement.scrollTop > 300 ? mybutton.style.display = "block" : mybutton.style.display = "none";
-}
 
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// 
 
 let app = new Vue({
     el: '#root',
@@ -23,12 +19,11 @@ let app = new Vue({
         loader : true
     },
 
-    // computed : {},
-
     methods : {
         detailedView : function (id) {
             this.current = this.beers.find(el => el.id == id)
             this.displayDetailedView = true
+            this.topFunction()
         },
 
         updateCurrentPrevious : function () {
@@ -47,7 +42,6 @@ let app = new Vue({
             })
             .then(res => {
                 this.page +=1 
-                // this.loader = false
                 return res.json()
             })
             .catch(err => console.error(err)) 
@@ -58,6 +52,21 @@ let app = new Vue({
                 .then(()=>{
                     this.beers = this.beers.concat(this.data)
                 })
+        },
+
+        scroll : function () {
+            window.onscroll = () => {
+              let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+              if (bottomOfWindow) this.loadData()
+
+              const mybutton = document.getElementById("myBtn");
+              document.body.scrollTop > 300 || document.documentElement.scrollTop > 300 ? mybutton.style.display = "block" : mybutton.style.display = "none";
+           }
+        },
+
+        topFunction :  function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
     },
 
@@ -71,23 +80,16 @@ let app = new Vue({
             
     },
 
+    mounted () {
+        this.scroll(); 
+    }
+
 })
 
 
 // media queries 
 // table instead
+// banner 
 
 
-
-
-
-
-//// const malts = beers.ingredients.malt 
-/// WITH  MAP
-// const newMalts = malts.map((el) => el.name)
-/// SAME AS MAP ABOVE
-// const newMalts =[]
-// for (let i =0; i < malts.length; i++) {
-    // newMalts.push(malts[i].name)
-//}
 

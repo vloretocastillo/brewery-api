@@ -10,10 +10,10 @@
   </head>
     
   <body>
-
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
     <div id="root" >
+
+        <button v-on:click="topFunction" id="myBtn" title="Go to top">Top</button>
+
 
         <div class="content-wrapper">
             <div class="dark-cover"></div>
@@ -47,7 +47,7 @@
                     </div>
                     </div>
                 </div>
-                <a v-on:click='loadData' class="waves-effect waves-light btn-large btn">Load More</a>
+                <!-- <a v-on:click='loadData' class="waves-effect waves-light btn-large btn">Load More</a> -->
             </section>
 
 
